@@ -94,3 +94,6 @@
 .sub-btn:hover{
    background-color: #51baff;
 }
+.sub{
+  min-width:100px;
+}
