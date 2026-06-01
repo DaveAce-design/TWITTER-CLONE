@@ -97,3 +97,151 @@
 .sub{
   min-width:100px;
 }
+
+
+/* ─── TABLET (max 1280px): hide right bar ─── */
+    @media (max-width: 1280px) {
+      .right-bar { display: none; }
+      .feed {
+        margin-left: 275px;
+        width: calc(100vw - 275px);
+      }
+    }
+ 
+    /* ─── SMALL TABLET (max 768px): collapse sidebar to icons only ─── */
+    @media (max-width: 768px) {
+      .sidebar {
+        width: 72px;
+        padding-bottom: 80px;
+      }
+ 
+      .nav-inner {
+        width: auto;
+        justify-content: center;
+        padding: 10px;
+      }
+ 
+      /* hide text labels */
+      .nav-inner div { display: none; }
+ 
+      /* hide Post button text, show icon-only circle */
+      .div-button {
+        left: 50%;
+        transform: translateX(-50%);
+      }
+ 
+      .div-button button {
+        width: 46px;
+        height: 46px;
+        font-size: 22px;
+        border-radius: 50%;
+        /* show + sign instead of text */
+        color: transparent;
+        position: relative;
+        overflow: hidden;
+      }
+ 
+      .div-button button::after {
+        content: '+';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: white;
+        font-size: 26px;
+        font-weight: 300;
+      }
+ 
+      /* hide account name, show just avatar */
+      .account-grid {
+        width: auto;
+        padding: 8px;
+        justify-content: center;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+ 
+      .account-name,
+      .account-grid > div:last-child { display: none; }
+ 
+      /* feed takes remaining width */
+      .feed {
+        margin-left: 72px;
+        width: calc(100vw - 72px);
+      }
+ 
+      .feed-header { width: 100%; }
+ 
+      .post-image img { width: 100%; }
+    }
+ 
+    /* ─── MOBILE (max 500px): full-width feed, bottom nav ─── */
+    @media (max-width: 500px) {
+      /* hide sidebar entirely */
+      .sidebar { display: none; }
+ 
+      /* feed fills full screen */
+      .feed {
+        margin-left: 0;
+        width: 100vw;
+        padding-bottom: 70px; /* space for bottom nav */
+      }
+ 
+      .feed-header { width: 100%; }
+ 
+      /* post composer tighter */
+      .what input { font-size: 16px; }
+ 
+      .post-name { font-size: 14px; }
+      .post-handle, .post-time { font-size: 12px; }
+      .content-text { font-size: 14px; }
+      .action-text { font-size: 12px; }
+ 
+      /* hide action text on very small screens */
+      .action-text { display: none; }
+ 
+      /* ─── BOTTOM NAV BAR (mobile only) ─── */
+      .bottom-nav {
+        display: flex;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 60px;
+        background: black;
+        border-top: 1px solid #2f3336;
+        z-index: 400;
+        justify-content: space-around;
+        align-items: center;
+        padding: 0 10px;
+      }
+ 
+      .bottom-nav-item {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 10px;
+        cursor: pointer;
+        border-radius: 50%;
+        transition: background 0.15s;
+      }
+ 
+      .bottom-nav-item:hover { background: rgba(255,255,255,0.1); }
+ 
+      .bottom-nav-item img {
+        width: 24px;
+        height: 24px;
+        filter: invert(1);
+      }
+ 
+      /* post composer media icons — smaller on mobile */
+      .media-icons .icon-btn { padding: 5px; font-size: 12px; }
+      .post-btn { padding: 7px 12px; font-size: 13px; }
+    }
+ 
+    /* show bottom nav only on mobile */
+    .bottom-nav { display: none; }
+ 
+    @media (max-width: 500px) {
+      .bottom-nav { display: flex; }
+    }
